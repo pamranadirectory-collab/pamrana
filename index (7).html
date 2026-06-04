@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>PAMRANA — Pakistani American Rajput Association of North America</title>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,700;0,900;1,400&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css"/>
+<style>
+:root{
+  --royal:#1A3A8F;--royal2:#2650B8;--royal3:#3D6FE8;--royallt:#EEF2FD;
+  --saffron:#E8620A;--saffron2:#F5830A;--saffronlt:#FFF3E8;
+  --emerald:#0F6B3E;--emeraldlt:#E8F5EE;
+  --offwhite:#F7F5F0;--gray1:#F2F0EC;--gray2:#E4E1DA;--gray3:#B0A99A;--gray4:#7A7469;
+  --ink:#1C1A17;--ink2:#3D3A35;
+  --row-even:#F8F7FF;--row-odd:#FFFFFF;--row-hover:#EEF2FD;
+  --sb:rgba(26,58,143,0.12);--ss:rgba(232,98,10,0.15);
+  --tborder:#D5D0E8;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Nunito',sans-serif;background:var(--offwhite);color:var(--ink);-webkit-font-smoothing:antialiased;min-height:100vh;}
+
+/* TOPBAR */
+.topbar{background:var(--royal);height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 28px;box-shadow:0 3px 16px var(--sb);position:sticky;top:0;z-index:200;}
+.tb-left{display:flex;align-items:center;gap:12px;}
+.tb-badge{width:42px;height:42px;border-radius:50%;background:var(--saffron);display:flex;align-items:center;justify-content:center;font-family:'Merriweather',serif;font-weight:900;font-size:18px;color:#fff;box-shadow:0 2px 8px rgba(0,0,0,.2);flex-shrink:0;}
+.tb-title{font-family:'Merriweather',serif;font-size:16px;font-weight:700;color:#fff;line-height:1.2;}
+.tb-title small{font-family:'Nunito',sans-serif;font-size:10px;font-weight:600;color:rgba(255,255,255,.5);display:block;}
+.tb-btn{display:flex;align-items:center;gap:6px;padding:10px 18px;border-radius:8px;font-family:'Nunito',sans-serif;font-size:13px;font-weight:700;border:none;cursor:pointer;transition:.2s;background:var(--saffron);color:#fff;box-shadow:0 2px 8px var(--ss);}
+.tb-btn:hover{background:var(--saffron2);transform:translateY(-1px);}
+.tb-btn i{font-size:15px;}
+
+/* HERO */
+.hero{background:linear-gradient(140deg,#122870,var(--royal2) 55%,#1C4AA0);padding:40px 28px 36px;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.055) 1.5px,transparent 1.5px);background-size:28px 28px;}
+.hero-body{position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;max-width:1400px;margin:0 auto;}
+.h-pill{display:inline-flex;align-items:center;gap:6px;background:var(--saffron);color:#fff;font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:4px 12px;border-radius:20px;margin-bottom:10px;box-shadow:0 2px 8px var(--ss);}
+.h-title{font-family:'Merriweather',serif;font-size:clamp(20px,3.5vw,36px);font-weight:900;color:#fff;line-height:1.15;margin-bottom:6px;}
+.h-title em{font-style:italic;font-weight:400;color:#F5A623;}
+.h-sub{font-size:13px;font-weight:500;color:rgba(255,255,255,.65);line-height:1.65;max-width:480px;}
+.hero-stats{display:flex;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:12px;overflow:hidden;flex-shrink:0;}
+.hstat{padding:16px 24px;text-align:center;border-right:1px solid rgba(255,255,255,.12);}
+.hstat:last-child{border-right:none;}
+.hstat-n{font-family:'Merriweather',serif;font-size:28px;font-weight:900;color:#F5A623;display:block;line-height:1;margin-bottom:3px;}
+.hstat-l{font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.5);}
+
+/* TOOLBAR */
+.toolbar{background:#fff;border-bottom:2px solid var(--tborder);padding:10px 28px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;box-shadow:0 2px 8px rgba(0,0,0,.04);position:sticky;top:64px;z-index:100;}
+.sb{position:relative;flex:1;min-width:190px;}
+.sb i{position:absolute;left:10px;top:50%;transform:translateY(-50%);font-size:16px;color:var(--gray3);pointer-events:none;}
+.sb input{width:100%;height:38px;padding:0 12px 0 34px;background:var(--gray1);border:2px solid var(--gray2);border-radius:8px;font-family:'Nunito',sans-serif;font-size:13px;font-weight:500;color:var(--ink);outline:none;transition:.2s;}
+.sb input:focus{border-color:var(--royal3);background:#fff;box-shadow:0 0 0 3px rgba(61,111,232,.09);}
+.sb input::placeholder{color:var(--gray3);}
+.fsel{height:38px;padding:0 28px 0 10px;background:var(--gray1) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%23B0A99A' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") no-repeat right 9px center;border:2px solid var(--gray2);border-radius:8px;font-family:'Nunito',sans-serif;font-size:12px;font-weight:600;color:var(--ink2);outline:none;cursor:pointer;appearance:none;transition:.2s;}
+.fsel:focus{border-color:var(--royal3);}
+.tc{font-size:12px;font-weight:600;color:var(--gray3);margin-left:auto;white-space:nowrap;}
+.tc strong{color:var(--royal);}
+
+/* TABLE */
+.table-wrap{overflow-x:auto;}
+.dtable{width:100%;border-collapse:collapse;font-size:13px;min-width:980px;}
+.dtable thead tr{background:var(--royal);}
+.dtable th{padding:12px 14px;text-align:left;font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:#fff;white-space:nowrap;border-right:1px solid rgba(255,255,255,.12);cursor:pointer;user-select:none;}
+.dtable th:last-child{border-right:none;}
+.dtable th:hover{background:var(--royal2);}
+.th-in{display:flex;align-items:center;gap:5px;}
+.sico{opacity:.4;font-size:10px;}
+.dtable th.sorted .sico{opacity:1;color:#F5A623;}
+.dtable tbody tr{border-bottom:1px solid var(--tborder);transition:background .15s;}
+.dtable tbody tr:nth-child(odd){background:var(--row-odd);}
+.dtable tbody tr:nth-child(even){background:var(--row-even);}
+.dtable tbody tr:hover{background:var(--row-hover);}
+.dtable td{padding:10px 14px;vertical-align:middle;border-right:1px solid var(--tborder);color:var(--ink2);}
+.dtable td:last-child{border-right:none;}
+.td-photo{text-align:center;width:60px;padding:6px 8px!important;}
+.ph-img{width:46px;height:46px;border-radius:50%;object-fit:cover;border:2px solid var(--royallt);box-shadow:0 2px 8px var(--sb);display:block;margin:0 auto;}
+.ph-ini{width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,var(--royal),var(--royal3));border:2px solid var(--royallt);display:flex;align-items:center;justify-content:center;font-family:'Merriweather',serif;font-size:14px;font-weight:700;color:#fff;margin:0 auto;}
+.td-name{font-weight:700;color:var(--royal);white-space:nowrap;}
+.badge{display:inline-flex;padding:2px 8px;border-radius:20px;font-size:10px;font-weight:700;}
+.bb{background:var(--royallt);color:var(--royal);}
+.bo{background:var(--saffronlt);color:var(--saffron);}
+.td-dim{color:var(--gray4);}
+.clink{display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:600;text-decoration:none;padding:3px 8px;border-radius:6px;border:1.5px solid var(--gray2);color:var(--ink2);transition:.2s;margin-right:3px;}
+.clink i{font-size:13px;}
+.clink:hover{border-color:var(--royal);color:var(--royal);background:var(--royallt);}
+.clink.em{border-color:var(--royal);color:var(--royal);background:var(--royallt);}
+
+/* LOADING / EMPTY */
+.state-row td{padding:60px 20px;text-align:center;color:var(--gray3);}
+.state-row i{font-size:44px;display:block;margin-bottom:12px;color:var(--gray2);}
+.state-row p{font-size:14px;font-weight:600;}
+.spinner{display:inline-block;width:40px;height:40px;border:4px solid var(--gray2);border-top-color:var(--royal);border-radius:50%;animation:spin 1s linear infinite;margin-bottom:12px;}
+@keyframes spin{to{transform:rotate(360deg);}}
+
+/* MODAL */
+.overlay{display:none;position:fixed;inset:0;background:rgba(26,58,143,.45);z-index:400;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px);}
+.overlay.open{display:flex;}
+.modal{background:#fff;border-radius:20px;box-shadow:0 20px 60px rgba(26,58,143,.25);width:100%;max-width:660px;max-height:90vh;overflow-y:auto;animation:mIn .25s cubic-bezier(.22,1,.36,1);}
+@keyframes mIn{from{opacity:0;transform:scale(.96) translateY(14px);}to{opacity:1;transform:none;}}
+.mhead{background:linear-gradient(135deg,var(--royal),var(--royal2));padding:22px 26px;border-radius:20px 20px 0 0;display:flex;align-items:center;justify-content:space-between;}
+.mhead-title{font-family:'Merriweather',serif;font-size:18px;font-weight:700;color:#fff;}
+.mclose{width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.15);border:none;color:#fff;font-size:17px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.2s;}
+.mclose:hover{background:rgba(255,255,255,.25);}
+.mbody{padding:24px 26px 28px;}
+.msec{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--royal);border-bottom:2px solid var(--royallt);padding-bottom:5px;margin:18px 0 12px;display:block;}
+.msec:first-of-type{margin-top:0;}
+.fg{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.fg .full{grid-column:1/-1;}
+.mf{display:flex;flex-direction:column;gap:5px;}
+.mf label{font-size:11px;font-weight:700;color:var(--ink2);}
+.mf label .r{color:var(--saffron);}
+.mf input,.mf select,.mf textarea{height:42px;padding:0 12px;background:var(--gray1);border:2px solid var(--gray2);border-radius:9px;font-family:'Nunito',sans-serif;font-size:13px;font-weight:500;color:var(--ink);outline:none;width:100%;transition:.2s;}
+.mf input::placeholder,.mf textarea::placeholder{color:var(--gray3);font-weight:400;}
+.mf input:focus,.mf select:focus,.mf textarea:focus{border-color:var(--royal3);background:#fff;box-shadow:0 0 0 3px rgba(61,111,232,.09);}
+.mf select{appearance:none;cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%23B0A99A' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 10px center;background-color:var(--gray1);padding-right:28px;}
+.mf select:focus{background-color:#fff;}
+.mf textarea{height:auto;padding:10px 12px;resize:vertical;min-height:72px;line-height:1.6;}
+
+/* photo upload */
+.pzone{border:2px dashed var(--gray2);border-radius:10px;padding:20px;text-align:center;cursor:pointer;background:var(--gray1);transition:.2s;}
+.pzone:hover{border-color:var(--royal3);background:var(--royallt);}
+.pz-ico{font-size:28px;color:var(--royal3);display:block;margin-bottom:8px;}
+.pz-lbl{font-size:13px;font-weight:700;color:var(--royal);margin-bottom:3px;}
+.pz-hint{font-size:10px;color:var(--gray3);font-weight:500;}
+.pz-prev{display:none;flex-direction:column;align-items:center;gap:8px;}
+.pz-prev img{width:64px;height:64px;border-radius:50%;object-fit:cover;border:3px solid var(--royallt);box-shadow:0 2px 8px var(--sb);}
+.pz-nm{font-size:11px;font-weight:600;color:var(--ink2);}
+.pz-rm{background:#FDE8EC;color:#C0112B;border:none;border-radius:6px;padding:4px 10px;font-size:10px;font-weight:700;cursor:pointer;font-family:'Nunito',sans-serif;}
+
+/* submit button */
+.mfoot{display:flex;gap:10px;margin-top:20px;}
+.mbtn{flex:1;height:46px;border-radius:10px;font-family:'Nunito',sans-serif;font-size:13px;font-weight:800;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:7px;transition:.2s;}
+.mbtn i{font-size:16px;}
+.mbtn-p{background:linear-gradient(135deg,var(--emerald),#1AAD62);color:#fff;box-shadow:0 4px 14px rgba(15,107,62,.25);}
+.mbtn-p:hover{transform:translateY(-1px);box-shadow:0 7px 20px rgba(15,107,62,.35);}
+.mbtn-p:disabled{opacity:.6;cursor:not-allowed;transform:none;}
+.mbtn-c{background:var(--gray1);color:var(--gray4);border:2px solid var(--gray2);}
+
+/* SUCCESS overlay */
+.success-overlay{display:none;position:fixed;inset:0;background:rgba(248,246,241,.97);backdrop-filter:blur(18px);z-index:500;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px;}
+.success-overlay.show{display:flex;}
+.s-circle{width:100px;height:100px;border-radius:50%;background:linear-gradient(135deg,var(--emerald),#1AAD62);display:flex;align-items:center;justify-content:center;margin:0 auto 24px;box-shadow:0 8px 28px rgba(15,107,62,.3);}
+.s-circle i{font-size:46px;color:#fff;}
+.s-h{font-family:'Merriweather',serif;font-size:30px;font-weight:900;color:var(--royal);margin-bottom:10px;}
+.s-p{font-size:15px;font-weight:500;color:var(--ink2);line-height:1.7;max-width:400px;margin:0 auto 28px;}
+.s-btn{display:inline-flex;align-items:center;gap:8px;padding:13px 28px;background:var(--royal);color:#fff;border-radius:10px;font-family:'Nunito',sans-serif;font-size:14px;font-weight:700;border:none;cursor:pointer;box-shadow:0 4px 14px var(--sb);transition:.2s;}
+.s-btn:hover{background:var(--royal2);}
+
+/* FOOTER */
+footer{background:var(--royal);padding:24px 28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.ft-brand{display:flex;align-items:center;gap:9px;font-family:'Merriweather',serif;font-size:14px;font-weight:700;color:#fff;}
+.ft-copy{font-size:10px;color:rgba(255,255,255,.35);}
+
+@keyframes spin{to{transform:rotate(360deg);}}
+@media(max-width:640px){
+  .topbar{padding:0 14px;}.tb-title small{display:none;}
+  .hero{padding:24px 16px 20px;}.hero-stats{flex-wrap:wrap;}
+  .toolbar{padding:8px 14px;}.tc{display:none;}
+  footer{flex-direction:column;align-items:flex-start;padding:18px 16px;}
+  .mbody,.mhead{padding:18px 18px;}.fg{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- ══ SUCCESS SCREEN ══ -->
+<div class="success-overlay" id="success-overlay">
+  <div class="s-circle"><i class="ti ti-circle-check"></i></div>
+  <h2 class="s-h">You're in the Directory!</h2>
+  <p class="s-p">Your information has been successfully added to the PAMRANA directory. It will appear in the table below shortly. JazakAllah Khair!</p>
+  <button class="s-btn" onclick="document.getElementById('success-overlay').classList.remove('show');loadMembers();">
+    <i class="ti ti-users"></i> View Directory
+  </button>
+</div>
+
+<!-- ══ TOPBAR ══ -->
+<header class="topbar">
+  <div class="tb-left">
+    <div class="tb-badge">R</div>
+    <div class="tb-title">PAMRANA<small>Pakistani American Rajput Association of North America</small></div>
+  </div>
+  <button class="tb-btn" onclick="openModal()">
+    <i class="ti ti-user-plus"></i> Submit Information
+  </button>
+</header>
+
+<!-- ══ HERO ══ -->
+<div class="hero">
+  <div class="hero-body">
+    <div>
+      <div class="h-pill"><i class="ti ti-star-filled" style="font-size:10px"></i> Official Community Register · United States of America</div>
+      <h1 class="h-title">Pakistani American Rajput<br/><em>Association of North America — PAMRANA</em></h1>
+      <p class="h-sub">A complete register of Pakistani American Rajput families across the United States — names, origins, and contact information all in one place.</p>
+    </div>
+    <div class="hero-stats">
+      <div class="hstat"><span class="hstat-n" id="cnt-m">—</span><span class="hstat-l">Members</span></div>
+      <div class="hstat"><span class="hstat-n" id="cnt-s">—</span><span class="hstat-l">States</span></div>
+      <div class="hstat"><span class="hstat-n" id="cnt-o">—</span><span class="hstat-l">Origins</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ TOOLBAR ══ -->
+<div class="toolbar">
+  <div class="sb">
+    <i class="ti ti-search"></i>
+    <input type="text" id="q" placeholder="Search name, city, village, origin…" oninput="go()"/>
+  </div>
+  <select class="fsel" id="fs" onchange="go()"><option value="">All US States</option></select>
+  <span class="tc" id="tc"></span>
+</div>
+
+<!-- ══ TABLE ══ -->
+<div class="table-wrap">
+  <table class="dtable">
+    <thead>
+      <tr>
+        <th style="width:40px"><div class="th-in">#</div></th>
+        <th style="width:60px"><div class="th-in">Photo</div></th>
+        <th onclick="srt('name')" id="th-name"><div class="th-in">Full Name <span class="sico">↕</span></div></th>
+        <th onclick="srt('sub')" id="th-sub"><div class="th-in">Subcaste <span class="sico">↕</span></div></th>
+        <th onclick="srt('city')" id="th-city"><div class="th-in">US City <span class="sico">↕</span></div></th>
+        <th onclick="srt('state')" id="th-state"><div class="th-in">State <span class="sico">↕</span></div></th>
+        <th onclick="srt('pk')" id="th-pk"><div class="th-in">Pakistan Origin <span class="sico">↕</span></div></th>
+        <th onclick="srt('pkv')" id="th-pkv"><div class="th-in">Village <span class="sico">↕</span></div></th>
+        <th onclick="srt('india')" id="th-india"><div class="th-in">India Origin <span class="sico">↕</span></div></th>
+        <th><div class="th-in">Contact</div></th>
+      </tr>
+    </thead>
+    <tbody id="tbody">
+      <tr class="state-row"><td colspan="10"><div class="spinner"></div><p>Loading directory…</p></td></tr>
+    </tbody>
+  </table>
+</div>
+
+<footer>
+  <div class="ft-brand">
+    <div class="tb-badge" style="width:32px;height:32px;font-size:14px;">R</div>
+    PAMRANA Directory
+  </div>
+  <div class="ft-copy">pak-usa-rajputs.blogspot.com · Pakistani American Rajput Association of North America</div>
+</footer>
+
+<!-- ══ JOIN MODAL ══ -->
+<div class="overlay" id="overlay" onclick="bgClose(event)">
+  <div class="modal">
+    <div class="mhead">
+      <div class="mhead-title">Submit Your Information</div>
+      <button class="mclose" onclick="closeModal()">✕</button>
+    </div>
+    <div class="mbody">
+
+      <span class="msec">Personal Information</span>
+      <div class="fg">
+        <div class="mf full"><label>Full Name <span class="r">*</span></label><input type="text" id="f-name" placeholder="e.g. Muhammad Khalid Rana"/></div>
+        <div class="mf"><label>Phone (optional)</label><input type="tel" id="f-phone" placeholder="+1 (908) 000-0000"/></div>
+        <div class="mf"><label>Email <span class="r">*</span></label><input type="email" id="f-email" placeholder="your@email.com"/></div>
+        <div class="mf full"><label>Subcaste <span class="r">*</span></label><input type="text" id="f-sub" placeholder="e.g. Taoni, Bhatti, Chauhan, Rathore…"/></div>
+        <div class="mf"><label>Gender</label>
+          <select id="f-gen"><option value="" disabled selected>Select</option><option>Male</option><option>Female</option><option>Prefer not to say</option></select></div>
+      </div>
+
+      <span class="msec">Profile Photo</span>
+      <div class="pzone" id="pzone" onclick="document.getElementById('pfile').click()">
+        <input type="file" id="pfile" accept="image/*" style="display:none" onchange="prevPh(this)"/>
+        <div id="pz-in">
+          <i class="ti ti-camera pz-ico"></i>
+          <div class="pz-lbl">Click to upload a photo</div>
+          <div class="pz-hint">JPG or PNG · Clear portrait · Optional</div>
+        </div>
+        <div class="pz-prev" id="pz-prev">
+          <img id="pz-img" src="" alt=""/>
+          <span id="pz-nm" class="pz-nm"></span>
+          <button class="pz-rm" onclick="rmPh(event)">✕ Remove</button>
+        </div>
+      </div>
+
+      <span class="msec">US Residence</span>
+      <div class="fg">
+        <div class="mf"><label>City <span class="r">*</span></label><input type="text" id="f-city" placeholder="e.g. Edison, Houston, Chicago"/></div>
+        <div class="mf"><label>State <span class="r">*</span></label>
+          <select id="f-state"><option value="" disabled selected>Select state</option><option>AL</option><option>AK</option><option>AZ</option><option>AR</option><option>CA</option><option>CO</option><option>CT</option><option>DE</option><option>FL</option><option>GA</option><option>HI</option><option>ID</option><option>IL</option><option>IN</option><option>IA</option><option>KS</option><option>KY</option><option>LA</option><option>ME</option><option>MD</option><option>MA</option><option>MI</option><option>MN</option><option>MS</option><option>MO</option><option>MT</option><option>NE</option><option>NV</option><option>NH</option><option>NJ</option><option>NM</option><option>NY</option><option>NC</option><option>ND</option><option>OH</option><option>OK</option><option>OR</option><option>PA</option><option>RI</option><option>SC</option><option>SD</option><option>TN</option><option>TX</option><option>UT</option><option>VT</option><option>VA</option><option>WA</option><option>WV</option><option>WI</option><option>WY</option></select></div>
+      </div>
+
+      <span class="msec">Origin in Pakistan</span>
+      <div class="fg">
+        <div class="mf"><label>Province <span class="r">*</span></label>
+          <select id="f-prov"><option value="" disabled selected>Select province</option><option>Punjab</option><option>Sindh</option><option>KPK</option><option>Balochistan</option><option>Azad Kashmir</option><option>Gilgit-Baltistan</option><option>Other</option></select></div>
+        <div class="mf"><label>District / City <span class="r">*</span></label><input type="text" id="f-pkcity" placeholder="e.g. Gujrat, Sialkot, Lahore"/></div>
+        <div class="mf full"><label>Village / Town / Tehsil</label><input type="text" id="f-pkv" placeholder="e.g. Kharian, Wazirabad, Village Randhawa"/></div>
+      </div>
+
+      <span class="msec">Pre-Partition Origin — India</span>
+      <div class="fg">
+        <div class="mf"><label>State / Region</label><input type="text" id="f-istate" placeholder="e.g. Punjab, Jammu & Kashmir"/></div>
+        <div class="mf"><label>District / City</label><input type="text" id="f-icity" placeholder="e.g. Amritsar, Gurdaspur"/></div>
+        <div class="mf full"><label>Village / Town</label><input type="text" id="f-iv" placeholder="e.g. Village Taona, Pathankot area"/></div>
+      </div>
+
+      <div class="mfoot">
+        <button class="mbtn mbtn-c" onclick="closeModal()">Cancel</button>
+        <button class="mbtn mbtn-p" id="submit-btn" onclick="submitForm()">
+          <i class="ti ti-upload"></i> Add to Directory
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ════════════════════════════════════════════════════════════
+// YOUR GOOGLE APPS SCRIPT URL — paste here after deployment
+// ════════════════════════════════════════════════════════════
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx97BipXE0rHLJkJTfYoRzaKXFR8FZRMoa7aUip8_-HnlC6dR64NqAYFY9hvVC16tM/exec";
+const CLOUD_NAME  = "dqmj5myk0";
+const UPLOAD_PRESET = "pamrana";
+
+async function uploadPhoto(file) {
+  if (!file) return "";
+  const fd = new FormData();
+  fd.append("file", file);
+  fd.append("upload_preset", UPLOAD_PRESET);
+  fd.append("folder", "pamrana-directory");
+  try {
+    const res = await fetch(`https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`, {
+      method: "POST",
+      body: fd
+    });
+    const data = await res.json();
+    return data.secure_url || "";
+  } catch(e) {
+    return "";
+  }
+}
+// ════════════════════════════════════════════════════════════
+
+let ALL=[], VIS=[], sortCol='', sortDir=1;
+
+function ini(n){return(n||'').trim().split(' ').slice(0,2).map(x=>x[0]||'').join('').toUpperCase();}
+function v(id){return(document.getElementById(id)||{}).value||'';}
+
+function buildRow(m,i){
+  return `<tr>
+    <td style="text-align:center;color:var(--gray3);font-size:11px;font-weight:700">${i+1}</td>
+    <td class="td-photo">${m.photo
+      ?`<img src="${m.photo}" class="ph-img" alt="${m.name}"/>`
+      :`<div class="ph-ini">${ini(m.name)}</div>`}</td>
+    <td class="td-name">${m.name||''}</td>
+    <td><span class="badge bb">${m.sub||''}</span></td>
+    <td>${m.city||''}</td>
+    <td><span class="badge bo">${m.state||''}</span></td>
+    <td>${m.pk||''}</td>
+    <td class="td-dim">${m.pkv||'—'}</td>
+    <td class="td-dim">${m.india||'—'}</td>
+    <td style="white-space:nowrap">
+      ${m.phone?`<a href="tel:${m.phone}" class="clink"><i class="ti ti-phone"></i>Call</a>`:''}
+      ${m.email?`<a href="mailto:${m.email}" class="clink em"><i class="ti ti-mail"></i>Email</a>`:''}
+    </td>
+  </tr>`;
+}
+
+function paint(){
+  const tb=document.getElementById('tbody');
+  document.getElementById('tc').innerHTML=`Showing <strong>${VIS.length}</strong> of <strong>${ALL.length}</strong>`;
+  if(!VIS.length){
+    const msg = ALL.length===0
+      ? 'No members yet — be the first to join!'
+      : 'No members match your search.';
+    tb.innerHTML=`<tr class="state-row"><td colspan="10"><i class="ti ti-users"></i><p>${msg}</p></td></tr>`;
+    return;
+  }
+  tb.innerHTML=VIS.map((m,i)=>buildRow(m,i)).join('');
+}
+
+function go(){
+  const q=document.getElementById('q').value.toLowerCase();
+  const st=document.getElementById('fs').value;
+  VIS=ALL.filter(m=>{
+    const mq=!q||[m.name,m.city,m.pk,m.pkv,m.india,m.sub].join(' ').toLowerCase().includes(q);
+    return mq&&(!st||m.state===st);
+  });
+  applySort();
+}
+
+function srt(col){
+  if(sortCol===col)sortDir*=-1;else{sortCol=col;sortDir=1;}
+  document.querySelectorAll('.dtable th').forEach(t=>t.classList.remove('sorted'));
+  const th=document.getElementById('th-'+col);
+  if(th){th.classList.add('sorted');th.querySelector('.sico').textContent=sortDir===1?'↑':'↓';}
+  applySort();
+}
+
+function applySort(){
+  if(sortCol){
+    VIS.sort((a,b)=>{
+      const av=(a[sortCol]||'').toLowerCase(),bv=(b[sortCol]||'').toLowerCase();
+      return av<bv?-sortDir:av>bv?sortDir:0;
+    });
+  }
+  paint();
+}
+
+function drops(){
+  const sf=document.getElementById('fs');
+  [...new Set(ALL.map(m=>m.state).filter(Boolean))].sort().forEach(s=>{
+    const o=document.createElement('option');o.value=s;o.textContent=s;sf.appendChild(o);
+  });
+}
+
+function cnt(id,n){
+  const el=document.getElementById(id);let s=null;
+  (function f(t){if(!s)s=t;const p=Math.min((t-s)/700,1);el.textContent=Math.round(p*n);if(p<1)requestAnimationFrame(f);})(performance.now());
+}
+
+async function loadMembers(){
+  const tb=document.getElementById('tbody');
+  if(SCRIPT_URL==='PASTE_YOUR_SCRIPT_URL_HERE'){
+    ALL=[];VIS=[];paint();
+    cnt('cnt-m',0);cnt('cnt-s',0);cnt('cnt-o',0);
+    return;
+  }
+  try{
+    const res=await fetch(SCRIPT_URL+'?action=getMembers');
+    const data=await res.json();
+    if(data.success){
+      ALL=data.members||[];
+      VIS=[...ALL];
+      drops();go();
+      cnt('cnt-m',ALL.length);
+      cnt('cnt-s',new Set(ALL.map(m=>m.state).filter(Boolean)).size);
+      cnt('cnt-o',new Set(ALL.map(m=>(m.pk||'').split(',')[0]).filter(Boolean)).size);
+    }
+  }catch(e){
+    tb.innerHTML=`<tr class="state-row"><td colspan="10"><i class="ti ti-wifi-off"></i><p>Could not load directory. Please refresh the page.</p></td></tr>`;
+  }
+}
+
+// Modal
+function openModal(){document.getElementById('overlay').classList.add('open');document.body.style.overflow='hidden';}
+function closeModal(){document.getElementById('overlay').classList.remove('open');document.body.style.overflow='';}
+function bgClose(e){if(e.target===document.getElementById('overlay'))closeModal();}
+
+// Photo
+function prevPh(inp){
+  if(!inp.files||!inp.files[0])return;
+  const r=new FileReader();
+  r.onload=e=>{
+    document.getElementById('pz-img').src=e.target.result;
+    document.getElementById('pz-nm').textContent=inp.files[0].name;
+    document.getElementById('pz-in').style.display='none';
+    document.getElementById('pz-prev').style.display='flex';
+  };
+  r.readAsDataURL(inp.files[0]);
+}
+function rmPh(e){
+  e.stopPropagation();
+  document.getElementById('pfile').value='';
+  document.getElementById('pz-in').style.display='block';
+  document.getElementById('pz-prev').style.display='none';
+}
+
+// Submit directly to Google Sheet
+async function submitForm(){
+  const name=v('f-name'),email=v('f-email'),sub=v('f-sub');
+  if(!name||!email||!sub||!v('f-city')||!v('f-state')||!v('f-prov')||!v('f-pkcity')){
+    alert('Please fill in all required fields marked with *');return;
+  }
+
+  const btn=document.getElementById('submit-btn');
+  btn.disabled=true;
+  btn.innerHTML='<i class="ti ti-loader-2" style="animation:spin 1s linear infinite"></i> Adding…';
+
+  // Upload photo to Cloudinary first
+  const photoFile = document.getElementById('pfile').files[0];
+  let photoUrl = "";
+  if (photoFile) {
+    btn.innerHTML='<i class="ti ti-loader-2" style="animation:spin 1s linear infinite"></i> Uploading photo…';
+    photoUrl = await uploadPhoto(photoFile);
+  }
+
+  const params=new URLSearchParams({
+    action:'submit',
+    full_name:   name,
+    subcaste:    sub,
+    us_city:     v('f-city'),
+    us_state:    v('f-state'),
+    pk_province: v('f-prov'),
+    pk_city:     v('f-pkcity'),
+    pk_village:  v('f-pkv'),
+    india_state: v('f-istate'),
+    india_city:  v('f-icity'),
+    india_village:v('f-iv'),
+    phone:       v('f-phone'),
+    email:       email,
+    photo:       photoUrl,
+  });
+
+  try{
+    btn.innerHTML='<i class="ti ti-loader-2" style="animation:spin 1s linear infinite"></i> Adding…';
+    const res=await fetch(SCRIPT_URL+'?'+params.toString());
+    const data=await res.json();
+    if(data.success){
+      closeModal();
+      document.getElementById('success-overlay').classList.add('show');
+    }else{
+      throw new Error(data.error||'Unknown error');
+    }
+  }catch(err){
+    alert('Submission failed. Please try again.\n\n'+err.message);
+  }finally{
+    btn.disabled=false;
+    btn.innerHTML='<i class="ti ti-upload"></i> Add to Directory';
+  }
+}
+
+loadMembers();
+</script>
+</body>
+</html>
